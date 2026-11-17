@@ -1,0 +1,661 @@
+
+/* =========================================
+   SECTION 03 — EXPERTISE
+   Atmospheric Background + Interactive Cards
+========================================= */
+
+.expertise {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(16, 12, 30, 0.92) 0%,
+      rgba(16, 12, 30, 0.55) 18%,
+      rgba(16, 12, 30, 0.20) 55%,
+      rgba(16, 12, 30, 0.40) 100%
+    ),
+    url("/images/expertise-background.png");
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  /* Original spacing */
+  padding-top: 90px;
+}
+
+/* =========================================
+   PURPLE AMBIENT GLOW
+========================================= */
+
+.expertise::before {
+  content: "";
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  top: 15%;
+  right: -180px;
+
+  background: rgba(157, 91, 255, 0.10);
+  filter: blur(120px);
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Keep content above background */
+
+.expertise > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.expertise .section-heading {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+   SKILLS GRID
+========================================= */
+
+.expertise .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  perspective: 1200px;
+}
+
+/* =========================================
+   SKILL CARDS — GLASS EFFECT
+========================================= */
+
+.expertise .skill-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  min-height: 260px;
+  padding: 30px 26px;
+
+  border: 1px solid rgba(190, 145, 255, 0.28);
+  border-radius: 20px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(53, 32, 82, 0.82),
+    rgba(24, 16, 44, 0.96)
+  );
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+  transform: translateY(0);
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.4s ease;
+}
+
+/* Ambient glow inside each card */
+
+.expertise .skill-card::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  width: 240px;
+  height: 240px;
+
+  top: -150px;
+  right: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(170, 100, 255, 0.28);
+  filter: blur(65px);
+
+  opacity: 0.35;
+
+  transition: opacity 0.4s ease;
+}
+
+/* Luminous top border */
+
+.expertise .skill-card::after {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 15%;
+  width: 70%;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #d5b5ff,
+    transparent
+  );
+
+  opacity: 0.25;
+
+  transition: opacity 0.4s ease;
+}
+
+/* =========================================
+   HOVER EFFECT
+========================================= */
+
+.expertise .skill-card:hover {
+  transform: translateY(-10px);
+
+  border-color: #c69aff;
+
+  background: linear-gradient(
+    145deg,
+    rgba(75, 42, 112, 0.95),
+    rgba(32, 19, 57, 0.98)
+  );
+
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.3),
+    0 0 25px rgba(170, 100, 255, 0.22),
+    0 0 60px rgba(140, 75, 220, 0.12);
+}
+
+.expertise .skill-card:hover::before {
+  opacity: 1;
+}
+
+.expertise .skill-card:hover::after {
+  opacity: 1;
+}
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+/* Card number */
+
+.expertise .skill-number {
+  color: #b99aff;
+  letter-spacing: 2px;
+
+  transition: color 0.3s ease;
+}
+
+.expertise .skill-card:hover .skill-number {
+  color: #e0c5ff;
+}
+
+/* Icon container */
+
+.expertise .skill-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 25px 0 20px;
+
+  border: 1px solid rgba(195, 157, 255, 0.3);
+  border-radius: 14px;
+
+  background: rgba(164, 104, 255, 0.12);
+
+  color: #ddc5ff;
+
+  transition: all 0.4s ease;
+}
+
+.expertise .skill-icon svg {
+  width: 25px;
+  height: 25px;
+  stroke-width: 1.5;
+}
+
+/* Icon hover */
+
+.expertise .skill-card:hover .skill-icon {
+  transform: scale(1.12);
+
+  background: rgba(177, 119, 255, 0.25);
+
+  box-shadow:
+    0 0 25px rgba(177, 119, 255, 0.3);
+}
+
+/* Card title */
+
+.expertise .skill-card h3 {
+  color: #f8f3ff;
+  font-size: 18px;
+  margin: 0 0 18px;
+
+  transition: color 0.3s ease;
+}
+
+.expertise .skill-card:hover h3 {
+  color: #e5d1ff;
+}
+
+/* =========================================
+   TECHNOLOGY TAGS
+========================================= */
+
+.expertise .skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.expertise .skill-tags span {
+  padding: 7px 10px;
+
+  border: 1px solid rgba(195, 157, 255, 0.23);
+  border-radius: 30px;
+
+  background: rgba(174, 124, 255, 0.07);
+
+  color: #d5c5ed;
+  font-size: 10px;
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.expertise .skill-card:hover .skill-tags span {
+  border-color: rgba(205, 165, 255, 0.55);
+
+  background: rgba(174, 124, 255, 0.16);
+
+  color: #ffffff;
+}
+
+/* =========================================
+   FOOTNOTE
+========================================= */
+
+.expertise .skills-footnote {
+  margin-top: 28px;
+  color: #c4a7ed;
+}
+
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
+
+@media (max-width: 1100px) {
+  .expertise .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 768px) {
+  .expertise {
+    padding-top: 70px;
+    background-position: center top;
+  }
+
+  .expertise .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .expertise .skill-card {
+    padding: 22px 18px;
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .expertise .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .expertise .skill-card {
+    min-height: 220px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .expertise .skill-card,
+  .expertise .skill-card::before,
+  .expertise .skill-card::after,
+  .expertise .skill-icon,
+  .expertise .skill-tags span {
+    transition: none !important;
+  }
+
+  .expertise .skill-card:hover {
+    transform: none;
+  } 
+  }
+  
+/* =========================================
+   SECTION 03 — INTERACTIVE 3D FLIP CARDS
+========================================= */
+
+/* Preserve the original grid */
+.expertise .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  perspective: 1200px;
+}
+
+/* Outer wrapper */
+.expertise .skill-card {
+  min-width: 0;
+  min-height: 310px;
+  position: relative;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* Clickable card */
+.expertise .flip-card {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 310px;
+  padding: 0;
+
+  border: none;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+
+  perspective: 1200px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 3D rotating container */
+.expertise .flip-card-inner {
+  position: absolute;
+  inset: 0;
+  display: block;
+
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+
+  transition:
+    transform 0.85s cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.expertise .flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Both sides */
+.expertise .flip-card-face {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  padding: 27px 25px;
+
+  border: 1px solid rgba(190, 151, 255, 0.23);
+  border-radius: 20px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(43, 29, 63, 0.94),
+    rgba(22, 16, 39, 0.97)
+  );
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  overflow: hidden;
+
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.4s ease;
+}
+
+/* FRONT */
+.expertise .flip-card-front {
+  transform: rotateY(0deg);
+}
+
+/* BACK */
+.expertise .flip-card-back {
+  transform: rotateY(180deg);
+
+  background:
+    radial-gradient(
+      circle at 90% 5%,
+      rgba(166, 104, 255, 0.23),
+      transparent 45%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(47, 27, 75, 0.98),
+      rgba(20, 14, 36, 0.99)
+    );
+
+  border-color: rgba(190, 145, 255, 0.55);
+}
+
+/* Card top line */
+.expertise .card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.expertise .skill-number {
+  color: #b994ff;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.expertise .card-action {
+  color: rgba(199, 167, 255, 0.6);
+  transition: transform 0.4s ease;
+}
+
+/* Front icon */
+.expertise .skill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  margin-top: 42px;
+  margin-bottom: 23px;
+
+  border: 1px solid rgba(187, 145, 255, 0.35);
+  border-radius: 15px;
+
+  color: #d1b5ff;
+  background: rgba(153, 99, 225, 0.10);
+
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+/* Front title */
+.expertise .skill-card-title {
+  display: block;
+  color: #f5efff;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* Explore hint */
+.expertise .card-explore {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: auto;
+  padding-top: 20px;
+
+  color: #b99aff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+
+  border-top: 1px solid rgba(185, 154, 255, 0.16);
+}
+
+.expertise .card-explore span {
+  font-size: 17px;
+  transition: transform 0.3s ease;
+}
+
+/* BACK CONTENT */
+.expertise .back-heading {
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 23px;
+
+  color: #f6efff;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* Skill tags */
+.expertise .skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 10px;
+}
+
+.expertise .skill-tag {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 9px 12px;
+
+  border: 1px solid rgba(193, 155, 255, 0.28);
+  border-radius: 30px;
+
+  background: rgba(171, 116, 255, 0.09);
+  color: #e2d1ff;
+
+  font-size: 11px;
+  line-height: 1.3;
+  transition: background 0.3s ease;
+}
+
+/* Return hint */
+.expertise .card-return {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: auto;
+  padding-top: 18px;
+
+  color: #c19aff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+/* Hover: subtle, no card color explosion */
+@media (hover: hover) {
+  .expertise .flip-card:not(.is-flipped):hover .flip-card-front {
+    border-color: rgba(196, 151, 255, 0.65);
+
+    box-shadow:
+      0 12px 35px rgba(0, 0, 0, 0.2),
+      0 0 20px rgba(159, 99, 255, 0.10);
+  }
+
+  .expertise .flip-card:not(.is-flipped):hover .skill-icon {
+    transform: translateY(-4px) rotate(-5deg);
+    box-shadow: 0 0 20px rgba(176, 123, 255, 0.18);
+  }
+
+  .expertise .flip-card:hover .card-explore span {
+    transform: translate(4px, -3px);
+  }
+
+  .expertise .flip-card.is-flipped:hover .flip-card-back {
+    border-color: rgba(209, 173, 255, 0.8);
+  }
+}
+
+/* Keyboard accessibility */
+.expertise .flip-card:focus-visible {
+  outline: 2px solid #c49aff;
+  outline-offset: 5px;
+  border-radius: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .expertise .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .expertise .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .expertise .skill-card,
+  .expertise .flip-card {
+    min-height: 290px;
+    height: 290px;
+  }
+
+  .expertise .flip-card-face {
+    padding: 24px;
+  }
+
+  .expertise .skill-icon {
+    margin-top: 35px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .expertise .flip-card-inner {
+    transition-duration: 0.01ms;
+  }
+}
+
+
