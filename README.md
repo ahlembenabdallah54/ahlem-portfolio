@@ -1,6 +1,7 @@
+
 # Ahlem Ben Abdallah — Beyond the Code
 
-A React + Vite personal portfolio starter with a cinematic purple visual identity, scroll-reveal storytelling, responsive navigation, project detail modals and a small easter egg.
+A React + Vite personal portfolio with a cinematic purple visual identity, scroll-reveal storytelling, responsive navigation, project detail modals and a small easter egg.
 
 ## Run locally
 
