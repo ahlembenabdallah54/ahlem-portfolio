@@ -1,0 +1,489 @@
+
+/* =========================================
+   STORY SECTION — COMPACT ATMOSPHERIC DESIGN
+========================================= */
+
+.story-section {
+  position: relative;
+  isolation: isolate;
+  padding: 85px 7% 90px;
+  overflow: hidden;
+  color: #f8f3ff;
+
+  /* Background image + dark overlay */
+  background:
+    linear-gradient(
+      90deg,
+      rgba(16, 10, 30, 0.94) 0%,
+      rgba(16, 10, 30, 0.84) 45%,
+      rgba(16, 10, 30, 0.76) 100%
+    ),
+    url("/images/story-background.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Purple ambient glow */
+.story-section::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  right: -200px;
+  top: 15%;
+
+  background: rgba(157, 91, 255, 0.12);
+  filter: blur(120px);
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Keep Story content above the background */
+.story-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.story-heading {
+  margin-bottom: 35px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-eyebrow {
+  color: #b99aff;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.story-heading h2 {
+  margin-top: 14px;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  font-weight: 600;
+}
+
+.story-heading h2 em {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  color: #c6a9ff;
+}
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
+.story-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 75px;
+  align-items: start;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   PHOTO
+========================================= */
+
+.story-photo-column {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+}
+
+.story-photo-frame {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+  border-radius: 180px 180px 18px 18px;
+  border: 1px solid rgba(194, 155, 255, 0.4);
+  background: #241634;
+}
+
+.story-photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.8s ease;
+}
+
+.story-photo-frame:hover .story-photo {
+  transform: scale(1.035);
+}
+
+.story-photo-overlay {
+  position: absolute;
+  inset: 35% 0 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(15, 9, 28, 0.9)
+  );
+}
+
+.story-photo-caption {
+  position: absolute;
+  bottom: 30px;
+  left: 27px;
+  z-index: 2;
+}
+
+.story-photo-caption span {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #d3baff;
+}
+
+.story-photo-caption h3 {
+  font-size: 23px;
+  margin-top: 10px;
+}
+
+.story-photo-decoration {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+  color: #a996c4;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+/* =========================================
+   INTRODUCTION
+========================================= */
+
+.story-content {
+  max-width: 620px;
+  padding-top: 5px;
+}
+
+.story-greeting {
+  color: #bc9aff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.story-content h3 {
+  font-size: clamp(25px, 3vw, 36px);
+  line-height: 1.35;
+  margin: 22px 0 28px;
+  font-weight: 600;
+}
+
+.story-content p {
+  color: #b9aecb;
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 17px;
+}
+
+/* =========================================
+   QUOTE
+========================================= */
+
+.story-quote {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin: 30px 0;
+  padding: 20px;
+  background: rgba(151, 96, 255, 0.09);
+  border-left: 2px solid #aa75ff;
+  color: #d5baff;
+  font-family: Georgia, serif;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.story-quote span {
+  font-size: 25px;
+  color: #bd95ff;
+}
+
+/* =========================================
+   INTERESTS
+========================================= */
+
+.story-interests {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.story-interest {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #d7c9ec;
+  font-size: 12px;
+}
+
+.story-interest svg {
+  color: #b88aff;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   LINK
+========================================= */
+
+.story-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #c9aaff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: gap 0.3s ease;
+}
+
+.story-link:hover {
+  gap: 19px;
+}
+
+
+
+/* =========================================
+   INTERACTIVE TIMELINE — HOVER REVEAL
+========================================= */
+
+.story-milestones {
+  position: relative;
+  margin: 95px auto 0;
+  max-width: 1250px;
+  padding-top: 45px;
+  border-top: 1px solid rgba(183, 143, 255, 0.2);
+}
+
+.story-milestones-heading {
+  margin-bottom: 55px;
+}
+
+.story-milestones-heading h3 {
+  font-size: clamp(30px, 4vw, 44px);
+  margin-top: 15px;
+  letter-spacing: -1.5px;
+}
+
+/* GRID */
+
+.story-timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* CONNECTING LINE */
+
+.story-timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 15px;
+  bottom: 15px;
+  width: 1px;
+
+  background: linear-gradient(
+    to bottom,
+    #b78aff,
+    rgba(183, 138, 255, 0.08)
+  );
+}
+
+/* CARD */
+
+.story-timeline-item {
+  position: relative;
+  display: flex;
+  gap: 20px;
+
+  padding: 30px 28px 30px 35px;
+  min-height: 155px;
+
+  border: 1px solid rgba(183, 143, 255, 0.17);
+  border-radius: 16px;
+
+  background: rgba(151, 96, 255, 0.055);
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* CARD HOVER GLOW */
+
+.story-timeline-item:hover,
+.story-timeline-item:focus-within {
+  transform: translateY(-6px);
+
+  border-color: rgba(195, 151, 255, 0.85);
+
+  background: linear-gradient(
+    135deg,
+    rgba(151, 96, 255, 0.17),
+    rgba(255, 255, 255, 0.045)
+  );
+
+  box-shadow:
+    0 0 0 1px rgba(177, 123, 255, 0.12),
+    0 0 20px rgba(157, 91, 255, 0.20),
+    0 15px 40px rgba(0, 0, 0, 0.22);
+}
+
+/* TIMELINE DOT */
+
+.timeline-dot {
+  position: absolute;
+  left: -6px;
+  top: 30px;
+
+  width: 11px;
+  height: 11px;
+
+  border-radius: 50%;
+  background: #c49aff;
+
+  box-shadow:
+    0 0 0 5px rgba(176, 120, 255, 0.12),
+    0 0 18px rgba(176, 120, 255, 0.8);
+
+  z-index: 2;
+
+  transition: box-shadow 0.35s ease;
+}
+
+/* LIGHT UP THE DOT */
+
+.story-timeline-item:hover .timeline-dot,
+.story-timeline-item:focus-within .timeline-dot {
+  box-shadow:
+    0 0 0 7px rgba(176, 120, 255, 0.15),
+    0 0 25px rgba(176, 120, 255, 1);
+}
+
+/* DATE */
+
+.timeline-date {
+  display: inline-block;
+  margin-bottom: 17px;
+
+  color: #c3a1ff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* TITLE */
+
+.story-timeline-item h4 {
+  margin: 0 0 12px;
+
+  font-size: 19px;
+  line-height: 1.45;
+
+  color: #f7f0ff;
+}
+
+/* ORGANIZATION */
+
+.timeline-company {
+  display: block;
+  margin-bottom: 0;
+
+  color: #c4a4ff;
+  font-size: 13px;
+}
+
+/* =========================================
+   DESCRIPTION — HIDDEN BY DEFAULT
+========================================= */
+
+.story-timeline-item p {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+
+  margin: 0;
+
+  color: #b9aecb;
+  font-size: 13px;
+  line-height: 1.8;
+
+  transform: translateY(8px);
+
+  transition:
+    max-height 0.45s ease,
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    margin 0.35s ease;
+}
+
+/* SHOW DESCRIPTION ON HOVER */
+
+.story-timeline-item:hover p,
+.story-timeline-item:focus-within p {
+  max-height: 180px;
+  opacity: 1;
+
+  margin-top: 14px;
+
+  transform: translateY(0);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+  .story-timeline {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .story-milestones {
+    margin-top: 65px;
+    padding-top: 35px;
+  }
+
+  .story-timeline-item {
+    padding: 25px 20px 25px 28px;
+    min-height: auto;
+  }
+
+  .story-timeline-item h4 {
+    font-size: 17px;
+  }
+}
+
+/* TOUCH DEVICES: ALWAYS SHOW DESCRIPTIONS */
+
+@media (hover: none) {
+  .story-timeline-item p {
+    max-height: 180px;
+    opacity: 1;
+    margin-top: 14px;
+    transform: none;
+  }
+}
